@@ -1,0 +1,16 @@
+<div class="info-dialog-wrapper">
+    <div>
+        <div class="info-dialog-title" matDialogTitle>{{title}}</div>
+    </div>
+    <div mat-divider class="pop-info-divider"></div>
+    <div class="info-dialog-content">
+        <p matDialogContent> {{message}} </p>
+    </div>
+    <div mat-dialog-actions align="center">
+        <button type="button" class="btn-cancel" aria-label="Cancel" (click)="cancel()"
+            *ngIf="type == PopupType.confirm">
+            {{btnCancel || 'Cancel'}}
+        </button>
+        <button mat-button class="btn-ok" (click)="ok()">{{btnOk || 'OK'}}</button>
+    </div>
+</div>

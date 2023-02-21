@@ -1,0 +1,30 @@
+.col-menu {
+    display: flex;
+    border-bottom: 0.125rem solid #E2E7EA;
+    justify-content: space-between;
+
+    .menu, .menu-action {
+        display: flex;
+
+        .menu-item {
+            padding: 0.625rem 1.25rem;
+            color: #707070;
+            font-weight: 600;
+            font-size: 1em;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &.active {
+                border-bottom: 0.125rem solid #04327C;
+                margin-bottom: -0.125rem !important;
+                color: #04327C;
+            }
+        }
+    }
+}
+
+.active-item {
+    color: #04327C;
+}

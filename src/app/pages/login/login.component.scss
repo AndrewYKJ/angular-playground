@@ -1,0 +1,132 @@
+.register-photo {
+    max-width: 800px;
+    margin: auto;
+    padding: 80px 
+}
+
+.login-btn{
+        padding: 6px 17px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        color: white;
+        font-size: 13px;
+        background: dodgerblue;
+        font-weight: 600;
+}
+
+.eyeicon{
+    padding-left: 6px;
+}
+
+
+.form-group{
+   min-height: 80px;
+   margin-bottom: 15px;
+}
+
+.register-photo .image-holder {
+
+width: 100%;
+max-height: 100%;
+background: url(https://media.istockphoto.com/id/1201992144/photo/industry-4-0-fourth-industrial-revolution-digitalization-of-modern-business-process-and-using.jpg?s=1024x1024&w=is&k=20&c=1UYjuqmb3NwuuELV0cSBVhyCqvwql_gp35hZJteJ5mw=);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.form-design{
+  
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 36px;
+}
+
+.register-photo .form-container {
+   
+
+width: 100%;
+display: inline-flex;
+box-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
+}
+
+.register-photo form {
+ 
+min-width: 200px;
+width: 500px;
+background-color: #ffffff;
+padding: 40px 60px;
+color: #505e6c;
+}
+
+@media (max-width:991px) {
+    .register-photo form {
+        padding: 40px
+    }
+}
+
+@media (max-width:700px) {
+.register-photo .form-container {
+
+
+    display: block;
+}
+.form-container .form{
+  
+    width:auto; 
+  
+}
+}
+
+.register-photo form h2 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 30px
+}
+
+.register-photo form .form-control {
+    background: transparent;
+    // border: none;
+    // /* border-bottom: 1px solid #dfe7f1; */
+    // border-radius: 0;
+    box-shadow: none;
+    width: 70%;
+    padding-left: 20px;
+    padding-right: 20px;
+    outline: none;
+    color: inherit;
+    text-indent: 0px;
+    height: 40px;
+}
+
+.register-photo form .form-check {
+    font-size: 13px;
+    line-height: 20px
+}
+
+.register-photo form .btn-primary {
+    background: green;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 35px;
+    text-shadow: none;
+    outline: none !important
+}
+
+.register-photo form .btn-primary:hover,
+.register-photo form .btn-primary:active {
+    background: green
+}
+
+.register-photo form .btn-primary:active {
+    transform: translateY(1px)
+}
+
+.register-photo form .already {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none
+}

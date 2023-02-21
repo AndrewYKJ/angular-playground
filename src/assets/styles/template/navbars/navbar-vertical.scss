@@ -1,0 +1,242 @@
+@import '../_variables.scss';
+
+.navbar-vertical {
+    box-shadow: $navbar-vertical-box-shadow;
+
+    .navbar {
+        border-width: 0 0 1px 0;
+        border-style: solid;
+    }
+    // Navbar light
+    .navbar-light {
+        background-color: $navbar-light-bg;
+        border-color: $navbar-light-border-color;
+    }
+    // Navbar brand
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .navbar-brand-img,
+    .navbar-brand > img {
+        max-width: 100%;
+        max-height: 2rem;
+    }
+    // Navbar collapse
+    @include media-breakpoint-up(md) {
+        .navbar-collapse {
+            margin-left: -$navbar-padding-x;
+            margin-right: -$navbar-padding-x;
+            padding-left: $navbar-padding-x;
+            padding-right: $navbar-padding-x;
+
+            &:before {
+                content: '';
+                display: block;
+                margin: $navbar-padding-y (-$navbar-padding-x);
+            }
+        }
+    }
+    // Navbar navigaton
+    .navbar-nav {
+        margin-left: -$navbar-padding-x;
+        margin-right: -$navbar-padding-x;
+        // Navbar link
+        .nav-link {
+            padding-left: $navbar-padding-x;
+            padding-right: $navbar-padding-x;
+            font-size: $navbar-nav-link-font-size;
+
+            &.active {
+                position: relative;
+                background-color: $primary;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: .25rem;
+                    bottom: .25rem;
+                }
+            }
+
+            &.active-parent {
+                background-color: rgba($primary, .5);
+            }
+            // Icon
+            > i {
+                min-width: $navbar-icon-min-width;
+                font-size: .9375rem;
+                line-height: ($font-size-base * $line-height-base);
+            }
+            // Dropdown
+            .dropdown-menu {
+                border: none;
+
+                .dropdown-menu {
+                    margin-left: $dropdown-item-padding-x / 2;
+                }
+            }
+        }
+
+        .sub-menu {
+            .nav-link {
+                padding-left: 2.9375rem !important;
+            }
+        }
+    }
+    // Navbar navigation
+    .navbar-nav .nav-link {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link[data-toggle="collapse"] {
+        &:after {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 700;
+            content: "\f105";
+            margin-left: auto;
+            color: $text-muted;
+            transition: $transition-base;
+        }
+        // Expanded
+        &[aria-expanded="true"] {
+
+            &:after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    // Second level
+    .navbar-nav .nav .nav-link {
+        padding-left: $navbar-padding-x + $navbar-icon-min-width;
+    }
+    // Third level
+    .navbar-nav .nav .nav .nav-link {
+        padding-left: $navbar-padding-x * 1.5 + $navbar-icon-min-width;
+    }
+    // Navbar heading
+    .navbar-heading {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        font-size: $font-size-xs;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+    }
+    // Expanded navbar specific styles
+    &.navbar-expand {
+        @each $breakpoint, $dimension in $grid-breakpoints {
+
+            &-#{$breakpoint} {
+                @include media-breakpoint-up(#{$breakpoint}) {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    max-width: $navbar-vertical-width;
+                    padding-left: $navbar-vertical-padding-x;
+                    padding-right: $navbar-vertical-padding-x;
+                    overflow-y: auto;
+                    // Container
+                    > [class*="container"] {
+                        flex-direction: column;
+                        align-items: stretch;
+                        min-height: 100%;
+                        padding-left: 0;
+                        padding-right: 0; // Target IE 10 & 11
+                        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                            min-height: none;
+                            height: 100%;
+                        }
+                    }
+                    // Fixes the vertical navbar to the left
+                    &.fixed-left {
+                        left: 0;
+                        border-width: 0 1px 0 0;
+                    }
+                    // Fixed the vertical navbar to the right
+                    &.fixed-right {
+                        right: 0;
+                        border-width: 0 0 0 1px;
+                    }
+                    // Navbar collapse
+                    .navbar-collapse {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: stretch;
+                        margin-left: -$navbar-vertical-padding-x;
+                        margin-right: -$navbar-vertical-padding-x;
+                        padding-left: $navbar-vertical-padding-x;
+                        padding-right: $navbar-vertical-padding-x;
+
+                        > * {
+                            min-width: 100%;
+                        }
+                    }
+                    // Navbar navigation
+                    .navbar-nav {
+                        flex-direction: column;
+                        margin-left: -$navbar-vertical-padding-x;
+                        margin-right: -$navbar-vertical-padding-x;
+                    }
+
+                    .navbar-nav .nav-link {
+                        padding: $navbar-vertical-nav-link-padding-y $navbar-vertical-nav-link-padding-x;
+
+                        &.active {
+                            &:before {
+                                top: .25rem;
+                                bottom: .25rem;
+                                left: 0;
+                                right: auto;
+                                border-bottom: 0;
+                            }
+                        }
+                    }
+                    // Second level
+                    .navbar-nav .nav .nav-link {
+                        padding-left: $navbar-vertical-padding-x + $navbar-icon-min-width;
+                    }
+                    // Third level
+                    .navbar-nav .nav .nav .nav-link {
+                        padding-left: $navbar-vertical-padding-x * 1.5 + $navbar-icon-min-width;
+                    }
+                    // Navbar brand
+                    .navbar-brand {
+                        display: block;
+                        text-align: center;
+                        padding-top: (2rem - $navbar-padding-y);
+                        padding-bottom: (2rem - $navbar-padding-y);
+                    }
+
+                    .navbar-brand-img {
+                        max-height: 2.5rem;
+                    }
+                    // Navbar user
+                    .navbar-user {
+                        margin-left: -$navbar-vertical-padding-x;
+                        margin-right: -$navbar-vertical-padding-x;
+                        padding-top: 1rem;
+                        padding-bottom: 1rem - $navbar-padding-y;
+                        padding-left: $navbar-vertical-padding-x;
+                        padding-right: $navbar-vertical-padding-x;
+                        border-top: 1px solid $gray-200;
+                        // Dropup menu
+                        .dropup .dropdown-menu {
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

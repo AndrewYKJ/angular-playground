@@ -1,0 +1,87 @@
+<!-- 
+<ngb-accordion class="first" #acc="ngbAccordion" >
+    <ngb-panel title="Iron Man Series" id="config-panel-one">
+        <ng-template ngbPanelContent>
+            <ngb-accordion #acc="ngbAccordion">
+                <ngb-panel title="Iron Man (2008)" id="config-panel-2">
+                    <ng-template ngbPanelContent>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+                        officia
+                        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                        tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                        helvetica,
+                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                        Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                        accusamus
+                        labore sustainable VHS.
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel title="Iron Man 2 (2010)">
+                    <ng-template ngbPanelContent>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+                        officia
+                        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                        tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                        helvetica,
+                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                        Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                        accusamus
+                        labore sustainable VHS.
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel title="Iron Man 3 (2013)">
+                    <ng-template ngbPanelContent>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+                        officia
+                        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                        tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                        helvetica,
+                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                        Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                        accusamus
+                        labore sustainable VHS.
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+        </ng-template>
+    </ngb-panel>
+    <ngb-panel title="Two">
+        <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+            officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+            tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+            helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+            Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+            accusamus
+            labore sustainable VHS.
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion> -->
+
+
+<ngb-accordion class="first" #acc="ngbAccordion" >
+    <ngb-panel  *ngFor="let data of list; let i = index;" title="{{data.name}} Series" id="config-panel-{{data.name}}">
+        <ng-template ngbPanelContent>
+            <ngb-accordion #acc="ngbAccordion">
+                <ngb-panel  *ngFor="let series of data.series; let x = index;" title="{{series.name}} ({{series.releaseDate}})" id="config-panel-{{series.name}}">
+                    <ng-template ngbPanelContent>
+                       {{series.description}}
+                    </ng-template>
+                </ngb-panel>
+               
+              
+            </ngb-accordion>
+        </ng-template>
+    </ngb-panel>
+   
+</ngb-accordion> 

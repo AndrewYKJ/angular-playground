@@ -1,0 +1,13 @@
+
+<div  class="sidenav">
+       
+        <span *ngIf="!openSideNav" [(ngModel)]="openSideNav" (click)="openSide()">&#9776;</span>
+       <div class="sidenav-opened" *ngIf="openSideNav" [(ngModel)]="openSideNav" (click)="openSide()">&times;
+           <div ><a [routerLink]="['dashboard']">Home </a></div>
+        <div><a [routerLink]="['task']">Task</a></div>
+        <div><a [routerLink]="['gridview']">Grid View</a></div>
+         <div><a [routerLink]="['tabview']">Tab View</a></div>
+       </div>
+
+      
+</div> 

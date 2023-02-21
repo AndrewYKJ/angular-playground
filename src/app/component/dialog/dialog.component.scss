@@ -1,0 +1,184 @@
+.item-selection-dialog-wrapper {
+    background-color: white;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.item-selection-close-icon {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.item-selection-dialog-title {
+    font-size: 17px;
+    text-align: center;
+    color: black;
+}
+
+.item-selection-search-box-shadow {
+    border: none;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px #a9a9a9;
+    border-radius: 10px;
+    padding: 13px;
+}
+
+.item-selection-dialog-content {
+    margin-top: 20px;
+    font-size: 13px;
+    color: black;
+}
+
+.item-selection-search-icon {
+    position: absolute;
+}
+
+.item-selection-search-input {
+    width: 100%;
+    padding-left: 30px;
+    border: none;
+    font-size: 13px;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+.item-display {
+    display: table;
+    margin-top: 20px;
+}
+
+.item-display-cell {
+    display: table-cell;
+    position: relative;
+}
+
+.item-label {
+    width: 100%;
+    color: black;
+    font-size: 13px;
+    display: table-cell;
+    text-align: start;
+}
+
+.item-add-btn {
+    background-color: #04327C;
+    font-size: 11px;
+    color: white;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.item-added-btn {
+    background-color: rgb(221, 216, 216);
+    font-size: 11px;
+    color: grey;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.pop-info-divider {
+    color: grey;
+    opacity: 0.5;
+}
+::ng-deep .my-custom-dialog-class {
+    mat-dialog-container {
+        padding: unset!important;
+        transform: none;
+        position: absolute;
+        /* justify-content: center; */
+        top: 50%;
+        border: 1px solid;
+        /* background-color: grey; */
+        width: 100%;
+        max-width: 590px;
+        /* float: left; */
+        z-index: 12321312312321;
+        height: unset;
+        margin: auto;
+        left: 50%;
+        transform: translate(-50%, -35%)!important;
+    }
+}
+
+.main-body {
+    justify-content: center;
+}
+
+.m_r_10 {
+    margin-right: 10px;
+}
+
+.m_b_15 {
+    margin-bottom: 15px;
+}
+
+.d_f {
+    display: flex;
+}
+
+div.card.m-3 {
+    width: 50%;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-top: 35px;
+}
+
+.company_table {
+    margin: auto;
+    width: 80%;
+    /* border-collapse: unset; */
+    padding-top: 30px !important;
+}
+
+.w_100 {
+    width: 100%
+}
+
+.icon-edit {
+    background-image: url('/assets/images/icon_edit_grey.png');
+    width: 30px;
+    height: 30px;
+
+    background-size: contain;
+}
+
+.icon-delete {
+    background-image: url('/assets/images/delete_icon_red.png');
+    width: 30px;
+    height: 30px;
+
+    background-size: contain;
+}
+
+td.matWidth-5.ng-star-inserted {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+    height: 55px !important;
+}

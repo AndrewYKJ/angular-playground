@@ -1,0 +1,59 @@
+.main-body{
+    justify-content: center;
+}
+
+.m_r_10{
+    margin-right: 10px;
+}
+
+.m_b_15{
+    margin-bottom: 15px;
+}
+
+.d_f{
+    display: flex;
+}
+div.card.m-3
+{
+    width: 50%;
+    margin-right: auto!important;
+    margin-left: auto !important;
+    margin-top: 35px;
+}
+.company_table
+{
+        margin: auto;
+        width: 80%;
+        /* border-collapse: unset; */
+        padding-top: 30px !important;
+}
+.w_100
+{
+    width:100%
+}
+.icon-edit {
+    background-image: url('/assets/images/icon_edit_grey.png');
+    width: 30px;
+    height: 30px;
+
+    background-size: contain;
+}
+
+.icon-delete {
+    background-image: url('/assets/images/delete_icon_red.png');
+        width: 30px;
+        height: 30px;
+
+    background-size: contain;
+}
+td.matWidth-5.ng-star-inserted{
+    display: flex;
+   justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+    height: 55px!important;
+}

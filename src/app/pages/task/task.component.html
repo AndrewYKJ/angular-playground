@@ -1,0 +1,235 @@
+<!-- main app container -->
+<div class="card m-3">
+    <h5 class="card-header">Setting up commpany profile</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value, registerForm.valid)">
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" formControlName="companyName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &&f['companyName'].invalid }" />
+                <div *ngIf="submitted && f['companyName'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['companyName'].invalid">Company Name is required</div>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label>Company Email</label>
+                <input type="text" formControlName="email" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['email'].invalid }" />
+                <div *ngIf="submitted && f['email']" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                    <div *ngIf="f['email'].errors?.['email']">Email must be a valid email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Company Phone</label>
+                <input type="text" formControlName="phoneNo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['phoneNo'].invalid}" />
+                <div *ngIf="submitted && f['phoneNo'] " class="invalid-feedback">
+                    <div *ngIf="f['phoneNo'].errors?.['required'] ">Phone No is required</div>
+                    <div *ngIf="f['phoneNo'].errors?.['pattern'] ">Phone No must a valid Malaysia No</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Company Website Url</label>
+                    <input type="website" formControlName="website" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['website'].invalid}" />
+                    <div *ngIf="submitted && f['website']" class="invalid-feedback">
+                        <div *ngIf="f['website'].errors?.['required']">Website is required</div>
+                        <div *ngIf="f['website'].errors?.['pattern']">Website must be a valid url</div>
+                    </div>
+                </div>
+                
+            </div>
+            <label  class="m_r_10">Social Media & Link</label><button class="btn btn-secondary" (click)="addSocialAcc()">Add</button>
+
+            <div class="m_b_15"  formArrayName="socialmedia">
+               
+                    <ng-container *ngFor="let item of socialmedia.controls; let i = index;">
+                     <div class="d_f" [formGroupName]="i">
+                      
+                           <label class="m_r_10">{{i + 1 }}. </label>
+                            <div class="m_r_10">
+                                <label>Type</label>
+                                <select formControlName="type" class="m_r_10 form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && item.get('type')!.invalid}">
+                                    <option value=""></option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Telegram">Telegram</option>
+                                </select>
+                                <div *ngIf="submitted && item.get('type')!.invalid" class="invalid-feedback">
+                                    <div *ngIf=" item.get('type')!.invalid">Social Media is required</div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <label>Url Link</label>
+                                <input type="text" formControlName="link" class="m_r_10  form-control"
+                                    [ngClass]="{ 'is-invalid': submitted &&item.get('link')!.invalid }" />
+                                <div *ngIf="submitted && item.get('link')!.invalid" class="invalid-feedback">
+                                    <div *ngIf="item.get('link')!.errors!['required']">Website Url is required</div>
+                                    <div *ngIf="item.get('link')!.errors!['pattern']">Website Url is invalid</div>
+                                </div>
+                            </div>
+                            <span class="" type="reset" (click)="removeSocialAcc(i)">&times;</span>
+                   
+                       
+                     </div>
+                       
+                    </ng-container>
+               
+                  
+              
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Save</button>
+                
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="company_table">
+    <table class="w_100" mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="phoneNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.phoneNo}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="website">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
+            <td mat-cell *matCellDef="let element"> {{element.website}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th *matHeaderCellDef mat-header-cell class="matWidth-5">Action</th>
+            <td mat-cell  *matCellDef="let element" class="matWidth-5">
+                <span class="icon-edit" (click)="editDetail(element)"></span>
+                <span class="icon-delete" (click)="onDelete(element)"></span>
+            </td>
+        </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <div *ngIf="!isLoading" class="no-data"  >
+            No data
+        </div>
+        <div *ngIf="isLoading" class="py-5">
+            <mat-spinner [diameter]="30" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+        </div>
+    </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" >
+            </mat-paginator>
+  
+</div>
+
+
+<!-- <div [hidden]="!submitted">
+    
+    <h2>You submitted the following:</h2>
+   <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value, registerForm.valid)">
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text" formControlName="companyName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted &&f['companyName'].invalid }" />
+                <div *ngIf="submitted && f['companyName'].invalid" class="invalid-feedback">
+                    <div *ngIf="f['companyName'].invalid">Company Name is required</div>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label>Company Email</label>
+                <input type="text" formControlName="email" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['email'].invalid }" />
+                <div *ngIf="submitted && f['email']" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                    <div *ngIf="f['email'].errors?.['email']">Email must be a valid email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Company Phone</label>
+                <input type="text" formControlName="phoneNo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['phoneNo'].invalid}" />
+                <div *ngIf="submitted && f['phoneNo'] " class="invalid-feedback">
+                    <div *ngIf="f['phoneNo'].errors?.['required'] ">Phone No is required</div>
+                    <div *ngIf="f['phoneNo'].errors?.['pattern'] ">Phone No must a valid Malaysia No</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Company Website Url</label>
+                    <input type="website" formControlName="website" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f['website'].invalid}" />
+                    <div *ngIf="submitted && f['website']" class="invalid-feedback">
+                        <div *ngIf="f['website'].errors?.['required']">Website is required</div>
+                        <div *ngIf="f['website'].errors?.['pattern']">Website must be a valid url</div>
+                    </div>
+                </div>
+                
+            </div>
+            <label  class="m_r_10">Social Media & Link</label><button class="btn btn-secondary" (click)="addSocialAcc()">Add</button>
+
+            <div class="m_b_15"  formArrayName="socialmedia">
+               
+                    <ng-container *ngFor="let item of socialmedia.controls; let i = index;">
+                     <div class="d_f" [formGroupName]="i">
+                      
+                           <label class="m_r_10">{{i + 1 }}. </label>
+                            <div class="m_r_10">
+                                <label>Type</label>
+                                <select formControlName="type" class="m_r_10 form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && item.get('type')!.invalid}">
+                                    <option value=""></option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Telegram">Telegram</option>
+                                </select>
+                                <div *ngIf="submitted && item.get('type')!.invalid" class="invalid-feedback">
+                                    <div *ngIf=" item.get('type')!.invalid">Social Media is required</div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <label>Url Link</label>
+                                <input type="text" formControlName="link" class="m_r_10  form-control"
+                                    [ngClass]="{ 'is-invalid': submitted &&item.get('link')!.invalid }" />
+                                <div *ngIf="submitted && item.get('link')!.invalid" class="invalid-feedback">
+                                    <div *ngIf="item.get('link')!.errors!['required']">Website Url is required</div>
+                                    <div *ngIf="item.get('link')!.errors!['pattern']">Website Url is invalid</div>
+                                </div>
+                            </div>
+                            <span class="" type="reset" (click)="removeSocialAcc(i)">&times;</span>
+                   
+                       
+                     </div>
+                       
+                    </ng-container>
+               
+                  
+              
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Save</button>
+                
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div> -->

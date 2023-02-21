@@ -1,0 +1,74 @@
+table {
+    width: 100%;
+}
+@import "src/assets/styles/includes/color.scss";
+
+.chemical-formula-list-title {
+    font-size: 20px;
+    color: $primary-blue;
+    font-weight: bold;
+}
+
+.chemical-formula-search-icon {
+    position: absolute;
+}
+
+// input[type=search]::-webkit-search-cancel-button {
+//     -webkit-appearance: searchfield-cancel-button;
+// }
+
+.chemical-formula-search-input {
+    width: 95%;
+    padding-left: 30px;
+    padding-right: 10px;
+    border: none;
+    font-size: 13px;
+}
+
+.clearbutton{
+    display: contents;
+}
+
+.add-btn-container {
+    text-align: right;
+    margin-top: 20px;
+    width: 65%;
+
+    .add-btn {
+        border: none;
+        border-radius: 5px;
+        background-color: $primary-blue;
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.link {
+    cursor: pointer;
+    color: $primary-blue;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
+
+.chemical-formula-search-box-shadow {
+    border: none;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px #a9a9a9;
+    border-radius: 10px;
+    padding: 13px;
+}

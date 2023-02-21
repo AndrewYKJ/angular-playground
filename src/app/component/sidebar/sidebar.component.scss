@@ -1,0 +1,23 @@
+.sidenav{
+    position: absolute;
+    font-size: 30px;
+    height: 100%;
+    color: white;
+    z-index: 999999;
+}
+.sidenav span{
+    padding: 6px;
+}
+.sidenav-opened{
+    padding: 12px;
+    width: 250px;
+    height: 100%;
+    background-color: #04327C;
+    text-align: right;
+}
+
+.sidenav-opened div{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+}

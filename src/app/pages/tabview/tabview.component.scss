@@ -1,0 +1,17 @@
+.nav-tabs .nav-item {
+    margin-bottom: 0px!important;
+    min-width: 120px;
+}
+ul#ex1 {
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.text-center{
+    text-align: center;
+}
+::ng-deep ngb-accordion.first > .accordion-item {
+    border-top: none!important;
+    border-bottom: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+
+}

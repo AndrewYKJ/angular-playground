@@ -1,0 +1,21 @@
+
+
+<div class="topnav">
+    <app-sidebar></app-sidebar>
+    <!-- <div  class="sidenav">
+       
+        <span *ngIf="!openSideNav" [(ngModel)]="openSideNav" (click)="openSide()">&#9776;</span>
+        <span style="width: 15%; text-align: right;" *ngIf="openSideNav" [(ngModel)]="openSideNav" (click)="openSide()">&times;</span>
+       
+    </div> -->
+   
+    <div class='topnav-right'  (click)="switchLang()">
+    <span>{{currentLang.toUpperCase()}}</span>
+    </div> 
+    <div class="topnav-right">
+        <span>{{user?.name}}</span>
+     
+        <a class="nav-bar-login fa fa-sign-out" (click)="logout()" [routerLink]="['/login']"></a>
+    </div>
+</div>
+

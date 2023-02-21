@@ -1,0 +1,69 @@
+<div class="container marketing">
+    <h2>{{'iconList'| translate}}</h2>
+    <br>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-img-top" >
+              <img src="/assets/images/help_black.png" >
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{'helpicon' | translate }}</h3>
+                <p class="card-text">{{'gridviewtext' | translate }}
+                </p>
+               
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-img-top">
+                <img src="/assets/images/users_icon.png">
+            </div>
+          
+            <div class="card-body">
+                <h3 class="card-title">{{'usericon' | translate }}</h3>
+                <p class="card-text">{{'gridviewtext' | translate }}
+                </p>
+              
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-img-top">
+                <img src="/assets/images/settings.png">
+            </div>
+            <div class="card-body">
+
+    <h3 class="card-title">{{'settingsicon' | translate }}</h3>
+                <p class="card-text">{{'gridviewtext' | translate }}</p>
+                <!-- <div class="d-flex justify-content-between align-items-center">
+                  
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div [hidden]="!viewMore" class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-img-top">
+                <img src="/assets/images/product_icon.png">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{'producticon' | translate }}</h3>
+                <p class="card-text">{{'gridviewtext' | translate }}</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<div class="btn-viewMore" (click)="changeViewState()">
+    <span>{{viewMore != false ? ('viewless' | translate)  :( 'viewmore' | translate)  }}</span>
+    <span class="fa{{ viewMore!= false? 'fa-chevron-up': 'fa-chevron-down'}}"></span>
+
+</div>
+</div>  

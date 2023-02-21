@@ -1,0 +1,77 @@
+<div class="row m-0">
+    <div class="col-12">
+        <div class="my-3 chemical-formula-list-title">Nutrient List</div>
+        <div class="col-12">
+            <div class="row mb-4">
+                <div class="col-md-4 col-xs-4 mb-sm-2 pl-md-0">
+                    <div class="chemical-formula-search-box-shadow">
+                        <img class="chemical-formula-search-icon" width="18" src="assets/images/search_icon_grey.png" />
+                        <input class="chemical-formula-search-input" type="text" placeholder="Search formula"
+                          (keyup.enter)="onSearch()"  [(ngModel)]="keyword" />
+                        <div class="clearbutton"  *ngIf="keyword" aria-label="Clear" (click)="clear()">&times;</div>
+                    </div>
+
+                </div>
+                <!-- <div class="add-btn-container">
+                    <button class="add-btn" >ADD NEW NUTRIENT</button>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-responsive">
+                <mat-table [dataSource]="dataSource" matSort class="table mat-cell">
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                        <mat-cell *matCellDef="let item">
+                            <div class="link bold" [routerLink]="'detail/' + item.id">
+                                {{item.name}}
+                            </div>
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="formula">
+                        <mat-header-cell *matHeaderCellDef>Formula</mat-header-cell>
+                        <mat-cell *matCellDef="let item">
+                            <div *ngIf="item.formula != null">
+                                {{item.formula}}
+                            </div>
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="createdAt">
+                        <mat-header-cell *matHeaderCellDef>Created At</mat-header-cell>
+                        <mat-cell *matCellDef="let item">
+                            {{item.createdAt | date: 'dd MMM YYYY'}}, {{item.createdAt | date: 'h:mm a'}}
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="updatedAt">
+                        <mat-header-cell *matHeaderCellDef>Updated At</mat-header-cell>
+                        <mat-cell *matCellDef="let item">
+                            {{item.updatedAt | date: 'dd MMM YYYY'}}, {{item.updatedAt | date: 'h:mm a'}}
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef class="matWidth-5">Action</mat-header-cell>
+                        <mat-cell *matCellDef="let item" class="matWidth-5">
+                            <div class="icon-edit" [routerLink]="'edit/' + item.id"></div>
+                            <div class="icon-delete" ></div>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="['name','formula', 'createdAt', 'updatedAt', 'action']">
+                    </mat-header-row>
+                    <mat-row *matRowDef="let item; columns: ['name','formula', 'createdAt', 'updatedAt', 'action']">
+                    </mat-row>
+                </mat-table>
+                <!-- <div *ngIf="!isLoading" class="no-data" [style.display]="total == 0 ? '' : 'none'">
+                    No data
+                </div>
+                <div class="py-5">
+                    <mat-spinner [diameter]="30" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+                </div> -->
+            </div>
+        </div>
+        <mat-paginator #paginator [length]="total" [pageIndex]="currentPageIndex" [pageSize]="size"
+            [pageSizeOptions]="pageLimit" (page)="changePage($event)">
+        </mat-paginator>
+    </div>
+</div>

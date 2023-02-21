@@ -1,0 +1,37 @@
+<div class="register-photo">
+    <div class="form-container">
+        <div class="image-holder"></div>
+        <form  (ngSubmit)="onSubmit()"  [formGroup]="loginForm" class="fdorm">
+            <h2 class="text-center">Welcome to the website.</h2>
+            <div class="form-group">
+                <input (keydown)="reset()" formControlName='email' name="email"   class="form-design form-control"  type="email" placeholder="Email">
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                    </div> 
+                </div>
+              
+            <div class="form-group">
+                <input class="form-design form-control" (keydown)="reset()" formControlName="password" name="password" [type]="changetype?'password':'text'" placeholder="Password">
+                <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye-slash':'fa fa-eye'"></i></span>
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']">Password is required</div>
+                    <div *ngIf="f['password'].errors['minlength']">
+                        Password must be at least 6 characters
+                    </div>
+                    <div *ngIf="f['password'].errors['pattern']">
+                        Password must be at least 1 special characters, 1 uppercase characters, 1 lower characters & 1 number
+                    </div>
+                  
+                    <div *ngIf="f['password'].errors['maxlength']">
+                        Username must not exceed 40 characters
+                    </div>
+                </div>
+            </div>
+           
+        
+           <button type="submit"  class="login-btn" >Login</button>
+          
+        </form>
+    </div>
+</div>

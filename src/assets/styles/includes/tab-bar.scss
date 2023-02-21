@@ -1,0 +1,30 @@
+/* label style */
+.mat-tab-label{
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+}
+
+.mat-tab-link {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.mat-tab-label.mat-tab-label-active {
+    background-color: transparent;
+    color: red !important;
+    font-size: 15px;
+}
+  /* focus style */
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus{
+    background-color: transparent;
+    color: red !important;
+}
+  /* ink bar style */
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: red !important;
+}
+
+.mat-tab-nav-bar:active{
+    color: red !important;
+}

@@ -1,0 +1,32 @@
+button{
+    &:disabled{
+        cursor: not-allowed !important;
+    }
+}
+.btn {
+    position: relative;
+    transition: all .15s ease;
+    letter-spacing: .025em;
+    font-size: .875rem;
+    will-change: transform;
+
+    &:hover {
+        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+        transform: translateY(-1px);
+    }
+    // Icons
+    i:not(:first-child),
+    svg:not(:first-child) {
+        margin-left: .5rem;
+    }
+
+    i:not(:last-child),
+    svg:not(:last-child) {
+        margin-right: .5rem;
+    } 
+}
+
+.button-red {
+    color: #ffffff !important;
+    background-color: #EC1F27 !important;
+}

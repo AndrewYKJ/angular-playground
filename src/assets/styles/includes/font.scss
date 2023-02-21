@@ -1,0 +1,123 @@
+@import '../template/_variables.scss';
+
+@for $i from 10 through 100 {
+    .ft-#{$i} {
+        font-size: $i/16 + rem;
+    }
+}
+ 
+@media (min-width: 576px) {
+    @for $i from 10 through 100 {
+        .ft-sm-#{$i} {
+            font-size: $i/20 + rem;
+        }
+    }
+}
+
+
+.bold {
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lbl-orange {
+    color: #FD691B;
+}
+
+.lbl-green {
+    color: #00AF4A;
+}
+
+.lbl-light-grey {
+    color: #959595;
+}
+
+.lbl-red {
+    color: #FF0000;
+}
+
+.lbl-italic {
+    color: #626262;
+    font-style: italic;
+}
+
+.page-title {
+    color: #2F2F2F !important;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.title {
+    color: #707070 !important; 
+}
+
+.link {
+    text-decoration: underline;
+    color: #04327C;
+    
+    &:hover {
+        cursor: pointer;
+    }
+}
+ 
+.grey-500 {
+    color: $gray-500;
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url("/assets/fonts/opensans/bold.ttf");
+}
+
+@font-face {
+    font-family: opensans-semibold;
+    src: url("/assets/fonts/opensans/semi-bold.ttf");
+}
+
+@font-face {
+    font-family: opensans-regular;
+    src: url("/assets/fonts/opensans/regular.ttf");
+}
+
+@font-face {
+    font-family: opensans-italic;
+    src: url("/assets/fonts/opensans/italic.ttf");
+}
+
+@font-face {
+    font-family: opensans-regular;
+    src: url("/assets/font/opensans/regular.ttf");
+}
+
+@font-face {
+    font-family: sfprotext-bold;
+    src: url("/assets/fonts/sfprotext/bold.ttf");
+}
+
+@font-face {
+    font-family: sfprotext-semibold;
+    src: url("/assets/fonts/sfprotext/semi-bold.ttf");
+}
+
+@font-face {
+    font-family: sfprotext-medium;
+    src: url("/assets/fonts/sfprotext/medium.ttf");
+}
+
+@font-face {
+    font-family: sfprotext-regular;
+    src: url("/assets/fonts/sfprotext/regular.ttf");
+}
+
+@font-face {
+    font-family: sfprotext-italic;
+    src: url("/assets/fonts/sfprotext/italic.ttf");
+}
+
+@font-face {
+    font-family: lora-bold;
+    src: url("/assets/fonts/lora/bold.ttf");
+}

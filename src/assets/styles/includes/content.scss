@@ -1,0 +1,57 @@
+@for $i from 1 through 10 {
+    .width-#{$i} {
+        width: percentage($i);
+    }
+}
+
+.content-border, .edit-form {
+    background-color: #FFFFFF;
+    border: 1px solid #CECECE;
+    border-radius: 0.3125rem;
+}
+
+.info-blue {
+    background-color: #E7f3fc;
+    padding: 1.5rem;
+    border-radius: 0.3125rem;
+}
+.info-blue-green {
+    background-color: #007684;
+    padding: 1.5rem;
+    border-radius: 0.3125rem;
+    color: #FFFFFF;
+}
+
+.info-grey {
+    background-color: #F5F5F5;
+    padding: 1.5rem;
+    border-radius: 0.3125rem; 
+}
+
+.info-green{
+    background-color: #E5F7EC;
+    border-radius: 0.3125rem; 
+}
+.info-red{
+    background-color: #ffcfd8;
+    border-radius: 0.3125rem; 
+}
+
+.tag-blue {
+    background-color: #1487E2;
+    padding: 0.3rem 1rem;
+    border-radius: 1.25rem;
+    color: #FFFFFF;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tag-grey-alt {
+    background-color: #FFFFFF;
+    padding: 0.3rem 1rem;
+    border-radius: 1.25rem;
+    border: 1px solid #ababab;
+    color: #ababab;
+    display: inline-block;
+    cursor: pointer;
+}

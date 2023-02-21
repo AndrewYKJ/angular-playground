@@ -1,0 +1,97 @@
+[class*="icon-"] {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-block;
+    background-size: cover;
+    vertical-align: middle;
+    margin-right: 0.625rem;
+    cursor: pointer;
+
+    &.small {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &.cirle {
+        border-radius: 50%;
+    }
+}
+
+.icon-edit {
+    background-image: url('/assets/images/icon_edit_grey.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-delete {
+    background-image: url('/assets/images/delete_icon_red.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-close {
+    background-image: url('/assets/images/icon_close_circle_black.png');
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon-info-black {
+    background-image: url('/assets/images/info_icon_black@2x.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-upload-red {
+    background-image: url('/assets/images/upload_icon_red@2x.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-upload-white {
+    background-image: url('/assets/images/upload_icon_white.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-upload {
+    background-image: url('/assets/images/upload_icon_white.png');
+    width: 2.25rem;
+    height: 2rem;
+}
+
+.icon-upload-image {
+    background-image: url('/assets/images/upload_image_icon@2x.png');
+    width: 2.25rem;
+    height: 2rem;
+}
+
+.icon-cancel {
+    background-image: url('/assets/images/cancel_grey_btn@2x.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-location {
+    background-image: url('/assets/images/icon_location_grey.png');
+    width: 0.75rem;
+    height: 1rem;
+}
+
+.icon-calendar-grey {
+    background-image: url('/assets/images/calendar_icon_grey@2x.png');
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-add {
+    background-image: url('/assets/images/add_circle_icon_green@2x.png');
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon-move-up {
+    background-image: url('/assets/images/arrow_up_blue.png');
+    width: 1rem;
+    height: 1rem;
+}
+ 

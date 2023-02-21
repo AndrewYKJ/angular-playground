@@ -1,0 +1,136 @@
+<div>
+    <form class="example-form" [formGroup]="registerForm">
+        <div class="title">Edit Form</div>
+        <br>
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Company</mat-label>
+            <input type="text" matInput formControlName="companyName" placeholder="Ex. Netflix">
+
+            <mat-error *ngIf="registerForm.get('companyName')?.hasError('required')">
+                Company Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Website</mat-label>
+            <input type="text" matInput formControlName="website" placeholder="Ex. www.google.com">
+            <mat-error
+                *ngIf="registerForm.get('website')?.hasError('pattern') && !registerForm.get('website')?.hasError('required')">
+                Please enter a valid url
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('website')?.hasError('required')">
+                Website is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error
+                *ngIf="registerForm.get('email')?.hasError('email') && !registerForm.get('email')?.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill" style="margin-bottom: 15px;" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input style="width:90%;" matInput formControlName="date" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle  style="float: right;margin-top: -20px;" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> 
+            <!-- <mat-error
+                *ngIf="registerForm.get('date')?.hasError('pattern') && !registerForm.get('date')?.hasError('required')">
+                Please enter a valid date
+            </mat-error> -->
+            <mat-error *ngIf="registerForm.get('date')?.hasError('required')">
+                Date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+60 &nbsp;</span>
+            <input matInput formControlName="phoneNo" type="number" matInput placeholder="Ex. 12-977-1576">
+            <mat-error
+                *ngIf="registerForm.get('phoneNo')?.hasError('pattern') && !registerForm.get('phoneNo')?.hasError('required')">
+                Please enter a valid Telephone
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('phoneNo')?.hasError('required')">
+                Telephone is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <div class="m_b_15" formArrayName="socialmedia">
+            <label class="">List of company Social Platform</label>
+            <button class="btn btn-secondary" style="padding: 0px 8px 0px 8px;
+                margin-left: 10px;" (click)="addSocialAcc()">Add</button>
+            <br>
+            <ng-container *ngFor="let item of socialmedia.controls; let i = index;">
+                <div class="d_f" [formGroupName]="i">
+
+                    <label class="m_r_10">{{i + 1 }}. </label>
+
+                    <div class="m_r_10">
+                        <label>Type</label>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Social Platform</mat-label>
+                            <mat-select formControlName="type" required>
+                                <mat-option>--</mat-option>
+                                <mat-option *ngFor="let animal of socialtype" [value]="animal.value">
+                                    {{animal.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="item.get('link')!.invalid">Please choose an social platform</mat-error>
+                            <!-- <mat-hint>{{animalControl.value?.sound}}</mat-hint> -->
+                        </mat-form-field>
+
+                    </div>
+                    <div class="">
+                        <label>Url Link</label>
+                        <mat-form-field appearance="fill" class="example-full-width">
+                            <mat-label>Website</mat-label>
+
+                            <input matInput formControlName="link" type="url" matInput
+                                placeholder="Ex. www.facebook.com">
+                            <mat-error
+                                *ngIf="item.get('link')!.hasError!('pattern') && !item.get('link')!.hasError!('required')">
+                                Please enter a valid Url
+                            </mat-error>
+                            <mat-error *ngIf="item.get('link')!.hasError!('required')">
+                                Website Link is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- <input type="text" formControlName="link" class="m_r_10  form-control"
+                            [ngClass]="{ 'is-invalid': submitted &&item.get('link')!.invalid }" />
+                        <div *ngIf="submitted && item.get('link')!.invalid" class="invalid-feedback">
+                            <div *ngIf="item.get('link')!.errors!['required']">Website Url is required</div>
+                            <div *ngIf="item.get('link')!.errors!['pattern']">Website Url is invalid</div>
+                        </div> -->
+                    </div>
+                    <span class="" type="reset" (click)="removeSocialAcc(i)">&times;</span>
+
+
+                </div>
+
+            </ng-container>
+            <input id="file-input" type="file" accept="image/*"  (change)="onSelectFile($event)" multiple="multiple"
+                style="margin-top: 30px;" />
+            <mat-grid-list cols="2" rowHeight="2:1">
+                <ng-container *ngFor="let multiple of multiples;let i = index">
+                <mat-grid-tile> 
+                   <div >
+                    <span class="btn-removeimage" (click)="removeimage(i)">&times;</span>
+                    <img [src]="multiple" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap;
+                                                width: 50%; height: auto; object-fit: cover;" />
+                   </div> 
+                  
+                </mat-grid-tile>
+            </ng-container>
+              
+            </mat-grid-list>
+            
+
+        </div>
+    </form>
+</div>
