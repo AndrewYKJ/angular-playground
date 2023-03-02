@@ -82,25 +82,27 @@ export class LoginComponent implements OnInit {
     // } else {
      
     // }th
-    this.authService.login("wong@strongbytestudio.com", "qwer1234", "MY").pipe(
-      finalize(() => {
-        //    this.isLoading = false
+
+      this.router.navigateByUrl('dashboard');
+    // this.authService.login("wong@strongbytestudio.com", "qwer1234", "MY").pipe(
+    //   finalize(() => {
+    //     //    this.isLoading = false
      
-      }))
-      .subscribe(
-        data => {
-          this.router.navigateByUrl('dashboard');
-        },
-        err => {
-          console.log('LOGIN ERROR: ', err);
+    //   }))
+    //   .subscribe(
+    //     data => {
+    //       this.router.navigateByUrl('dashboard');
+    //     },
+    //     err => {
+    //       console.log('LOGIN ERROR: ', err);
          
-          // if (err.message != null) {
-          //   this.openInfoDialog('Login Info', err.message);
-          // } else {
-          //   this.openInfoDialog('Login Info', 'Please contact Customer Service for further assistance');
-          // }
-        },
-      );
+    //       // if (err.message != null) {
+    //       //   this.openInfoDialog('Login Info', err.message);
+    //       // } else {
+    //       //   this.openInfoDialog('Login Info', 'Please contact Customer Service for further assistance');
+    //       // }
+    //     },
+    //   );
   }
 
 

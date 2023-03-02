@@ -25,16 +25,15 @@ export class HeaderComponent implements OnInit {
   checkLoginName() {
     setTimeout(() => {                           // <<<---using ()=> syntax
       console.log("this.user");
-      this.displayName = localStorage.getItem("userProfile");
-      console.log(this.displayName['name']);
-
-      console.log(this.user?.name);
+      this.displayName = localStorage.getItem("userProfile") ;
+        
+   
       // if (!this.displayName) {
       //   this.user = this.displayName;
       //   console.log(this.user);
       // //  this.router.navigateByUrl('landing')
       // }
-      this.user = JSON.parse(this.displayName) as User;
+      this.user = this.displayName.length>0 ? JSON.parse(this.displayName) :{"name":"404"} as User;
     }, 1000);
  
   }
